@@ -6,7 +6,7 @@ class FilterTodos extends Component{
   createFilterRadio(value, text){
     return(
       <label key={value}>
-        <input type="radio" name="showTodos" value={value} checked={this.propsfilter == value} onChange={event => this.props.filterTodos(value)} /> {text}
+        <input type="radio" name="showTodos" value={value} checked={this.props.filter == value} onChange={event => this.props.filterTodos(value)} /> {text}
         </label>
     )
   }
