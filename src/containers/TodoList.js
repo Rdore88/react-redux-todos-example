@@ -10,7 +10,7 @@ class TodoList extends Component {
   }
 
   render(){
-    const {todos} = this.props;
+    var todos = this.props.todos;
     return (
       <div className="TodoList">
         {todos.map(todo => (<Todo handleToggle={this.handleToggle} todo={todo} />))}
@@ -20,13 +20,13 @@ class TodoList extends Component {
 }
 
 const mapStateToProps = function(state){
-  let output;
+  let todos;
   if (state.filter === 'uncompleted') {
-    output = state.todos.filter(todo => !todo.done);
+    todos = state.todos.filter(todo => !todo.complete);
   } else if (state.filter === 'completed') {
-    output = state.todos.filter(todo => todo.done);
+    todos = state.todos.filter(todo => todo.complete);
   } else {
-    output = state.todos
+    todos = state.todos
   }
 
   return {todos: todos}

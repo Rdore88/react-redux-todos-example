@@ -9,13 +9,15 @@ export function createTodo(todo){
 
 export function toggleTodo(id){
   return{
-    type: TOGGLE_TODO,
+    type: "TOGGLE_TODO",
     payload: id
   }
 }
 
 export function filterTodos(filterType){
+  console.log("action", filterType);
   return{
-    type:
+    type:"FILTER_TODOS",
+    payload: filterType
   }
 }

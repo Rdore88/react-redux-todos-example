@@ -24,8 +24,8 @@ const todoList = function(state=initialState, action){
     return update(state, {
       todos: {
         [index]: {
-          done: {
-            $apply: (done) => !done
+          complete: {
+            $apply: (complete) => !complete
           }
         }
       }
@@ -41,4 +41,4 @@ const todoList = function(state=initialState, action){
   }
 }
 
-export default reducer;
+export default todoList;

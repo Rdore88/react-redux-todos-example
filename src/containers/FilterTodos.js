@@ -6,7 +6,7 @@ class FilterTodos extends Component{
   createFilterRadio(value, text){
     return(
       <label key={value}>
-        <input type="radio" name="showTodos" value={value} checked={this.props.filter == value} onChange={event => this.props.filterTodos(value)} /> {text}
+        <input type="radio" name="showTodos" value={value} checked={this.props.filter === value} onChange={event => this.props.filterTodos(value)} /> {text}
         </label>
     )
   }
@@ -33,12 +33,14 @@ class FilterTodos extends Component{
 }
 
 const mapStateToProps = function(state){
+  console.log(state);
   return{filter: state.filter}
 }
 
 const mapDispatchToProps = function(dispatch){
   return{
     filterTodos: function(filter){
+      console.log("filter", filter);
       dispatch(filterTodos(filter));
     }
   }
