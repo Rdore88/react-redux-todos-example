@@ -3,30 +3,19 @@ import {connect} from 'react-redux';
 import {filterTodos} from '../actions/index';
 
 class FilterTodos extends Component{
-  createFilterRadio(value, text){
-    return(
-      <label key={value}>
-        <input type="radio" name="showTodos" value={value} checked={this.props.filter === value} onChange={event => this.props.filterTodos(value)} /> {text}
-        </label>
-    )
-  }
 
   render(){
-    const filterOptions = [
-      [
-        "all", "Show all"
-      ],
-      [
-        "uncompleted", "Show uncompleted"
-      ],
-      [
-        "completed", "Show completed"
-      ]
-    ]
-
     return(
       <div className="FilterTodos">
-        {filterOptions.map(option => this.createFilterRadio.apply(this, option))}
+        <label>
+          <input type="radio" name="showTodos" value="all" checked={this.props.filter === "all"} onChange={event => this.props.filterTodos("all")} /> Show all
+        </label>
+        <label>
+          <input type="radio" name="showTodos" value="uncompleted" checked={this.props.filter === "uncompleted"} onChange={event => this.props.filterTodos("uncompleted")} /> Show uncompleted
+        </label>
+        <label>
+          <input type="radio" name="showTodos" value="completed" checked={this.props.filter === "completed"} onChange={event => this.props.filterTodos("completed")} /> Show completed
+        </label>
       </div>
     )
   }
